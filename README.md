@@ -19,7 +19,7 @@ followed by search text
 
 example: node liri.js movie-this Avatar
 
-#concert-this command
+# concert-this command
 
 This command will display:
 
@@ -27,7 +27,7 @@ This command will display:
     Venue Location
     Date of the Event
 
-#spotify-this-song command
+# spotify-this-song command
 
 This command will display:
 
@@ -37,7 +37,7 @@ This command will display:
     The album that the song is from 
     If no song is provided then your program will defaul to "The Sign" by Ace of Base
 
-#movie-this command
+# movie-this command
 
     Title of the movie
     When the movie came out 
@@ -49,11 +49,11 @@ This command will display:
     Actors in the movie
     If the user doesn't type a movie in, the program will output 'Mr. Nobody'
 
-#do-what-it-says command 
+# do-what-it-says command 
 
     A random.txt file with search for spotify-this-song "I want it that way." This will give you the spotify results of "I want it that way."
 
-#Technologies Used
+# Technologies Used
 
     Javascript
     Node.js
