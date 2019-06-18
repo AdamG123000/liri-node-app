@@ -1,6 +1,5 @@
 //Set evironmental varaibles into process.env from and .env file
-
-var dotenv = require("dontenv").config();
+require("dontenv").config();
 
 //Getting access to the npms we need each of the functions we will be doing. We will need axois, spotify, file sharing, moment, and the Spotify API Keys in my keys.js file. 
 
@@ -26,34 +25,40 @@ var input = process.argv[3];
 
 switch(command) {
     case "concert-this":
-        concertThis(value);
+        concertThis(input);
         break;
     case "spotify-this-song":
-        spotifySong(value);
+        spotifySong(input);
         break;
     case "movie-this":
-        movieThis(value);
+        movieThis(input);
         break;
     case "do-what-it-says":
-        doThis(value);
+        doThis(input);
         break;
     };
 
 
 // command: 'concert- this'
 
-function concertThis(bandQuery) {
+function concertThis(input) {
 
-    var queryURL = "https://rest.bandsintown.com/artists/" + bandQuery + "/events?app_id=codingbootcamp";
-    console.log(queryURL);
+    axios.get("https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp")
+    .then(function(response) {
+        for (var i = 0; i < response.data.length ; i++) {
+            var datetime = response.data[i].datetime; //saves dateTime into a variable 
+            var dateArr = response.data[i].split('T'); //attempt to split the date and time in the response
 
-    axios.get(queryURL).then(
-        function(response) {
-        console.log("Venue: " + response.data.venue)
-        console.log("Location: " + response.data.location)
-        console.log("Date: " + response.data.location)
+            var concertResults = "-------------------------------" + 
+            "\nVenue Name: " + response.data[i].venue.name +
+            "\nVenue Location: " + response.data[i].venue.city +
+            "\nDate of the Event: " + moment(dateArr[0], "MM-DD-YYYY"); //dateArr[0] should be the date separated from the time
+            console.log(concertResults);
         }
-    )
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
 
 }
 
