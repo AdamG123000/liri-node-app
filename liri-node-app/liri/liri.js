@@ -21,17 +21,43 @@ moment().format();
 var command = process.argv[2];
 var input = process.argv[3];
 
+
+
 // command: 'concert- this'
 
-var queryURL = "https://rest.bandsintown.com/artists/" + concert + "/events?app_id=codingbootcamp";
-console.log(queryURL);
+function concertThis(bandQuery) {
 
-axios.get(queryURL).then(
-    function(response) {
+    var queryURL = "https://rest.bandsintown.com/artists/" + bandQuery + "/events?app_id=codingbootcamp";
+    console.log(queryURL);
+
+    axios.get(queryURL).then(
+        function(response) {
         console.log("Venue:" + response.data.venue)
+        }
+    )
+
+}
+
+//command: 'spotify-this-song'
+
+    //grab spotify axios pagckage and use .get function
+
+//command: 'movie-this'
+
+    //grab OMDB axios package and use get function
+
+//command: 'do-what-it-says'
+
+    //
+
+//switch for commands of all functions 
+var ask = function (commands, funData) {
+    switch(commands) {
+        case "concert-this":
+            concertThis(funData);
+            break;
     }
-)
+}
 
-
-
-
+//assign args to ask for switch case 
+ask (command, input);
