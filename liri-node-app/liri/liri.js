@@ -22,10 +22,16 @@ var command = process.argv[2];
 var input = process.argv[3];
 
 // command: 'concert- this'
-https://
 
-function concertThis(artist) {
-    var queryURL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
+var queryURL = "https://rest.bandsintown.com/artists/" + concert + "/events?app_id=codingbootcamp";
+console.log(queryURL);
 
-}
+axios.get(queryURL).then(
+    function(response) {
+        console.log("Venue:" + response.data.venue)
+    }
+)
+
+
+
 
