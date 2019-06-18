@@ -4,12 +4,28 @@ var dotenv = require("dontenv").config();
 
 //Getting access to the npms we need each of the functions we will be doing. We will need axois, spotify, file sharing, moment, and the Spotify API Keys in my keys.js file. 
 
-let axios = require("axios");
-let Spotify = require("node-spotify-api");
-let fs = require("fs");
-let spotifyKeys = require ("./keys.js");
+var request = require('request');
+var axios = require("axios");
+var Spotify = require("node-spotify-api");
+var fs = require("fs");
+var spotifyKeys = require ("./keys.js");
+
+//spotify keys
 var spotify = new spotify(spotifyKeys.spotify);
 
+//moment js
+var moment = require('moment');
+moment().format();
+
 //access to the command line arguements
-const [node,file, ...args] = process.argv;
+var command = process.argv[2];
+var input = process.argv[3];
+
+// command: 'concert- this'
+https://
+
+function concertThis(artist) {
+    var queryURL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
+
+}
 
