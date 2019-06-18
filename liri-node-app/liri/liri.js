@@ -22,6 +22,23 @@ var command = process.argv[2];
 var input = process.argv[3];
 
 
+//switch for commands of all functions 
+
+switch(command) {
+    case "concert-this":
+        concertThis(value);
+        break;
+    case "spotify-this-song":
+        spotifySong(value);
+        break;
+    case "movie-this":
+        movieThis(value);
+        break;
+    case "do-what-it-says":
+        doThis(value);
+        break;
+    };
+
 
 // command: 'concert- this'
 
@@ -32,7 +49,9 @@ function concertThis(bandQuery) {
 
     axios.get(queryURL).then(
         function(response) {
-        console.log("Venue:" + response.data.venue)
+        console.log("Venue: " + response.data.venue)
+        console.log("Location: " + response.data.location)
+        console.log("Date: " + response.data.location)
         }
     )
 
@@ -44,20 +63,18 @@ function concertThis(bandQuery) {
 
 //command: 'movie-this'
 
+axios    
+    .get("http://www.omdbapi.com")
+    .then(function(response){
+        console.log("Title: " + response.data.title);
+    })
+
     //grab OMDB axios package and use get function
 
 //command: 'do-what-it-says'
 
     //
 
-//switch for commands of all functions 
-var ask = function (commands, funData) {
-    switch(commands) {
-        case "concert-this":
-            concertThis(funData);
-            break;
-    }
-}
 
 //assign args to ask for switch case 
-ask (command, input);
+ask (commands, input);

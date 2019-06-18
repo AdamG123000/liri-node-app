@@ -6,5 +6,5 @@ axios
     .get("http://www.artists.bandsintown.com/bandsintown-api")
     .then(function(response){
         //console.log to make sure the package was successful
-        console.log(response.data.venue);
+        console.log(response.data);
     })
